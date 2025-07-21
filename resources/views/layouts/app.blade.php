@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link href="/assets/css/summernote-bs4.min.css" rel="stylesheet">
-
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="/assets/plugins/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/plugins/owlcarousel/owl.theme.default.min.css">
 </head>
 @yield('body')
 @if (isset($toast))
@@ -33,9 +35,16 @@
     @php
         $lines = $errors->all();
         array_unshift($lines, 'Invalid credentials.');
-        $description = implode("\n", array_map(function ($line, $index) {
-            return $index === 0 ? $line : "- $line";
-        }, $lines, array_keys($lines)));
+        $description = implode(
+            "\n",
+            array_map(
+                function ($line, $index) {
+                    return $index === 0 ? $line : "- $line";
+                },
+                $lines,
+                array_keys($lines),
+            ),
+        );
     @endphp
     <script>
         window.showToast = {
@@ -71,10 +80,25 @@
 <script defer src="/assets/js/beacon.js"
     data-cf-beacon='{"rayId":"93f77b316b95d051","version":"2025.4.0-1-g37f21b1","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"3ca157e612a14eccbb30cf6db6691c29","b":1}'
     crossorigin="anonymous"></script>
-    <script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="/assets/js/summernote-bs4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+<script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/assets/js/summernote-bs4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
 
-    @yield('scripts')
+
+
+
+<!-- Sticky Sidebar -->
+<script src="/assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
+<script src="/assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="/assets/plugins/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Optional: Calculator JS -->
+<script src="/assets/js/calculator.js"></script>
+
+
+
+@yield('scripts')
 
 </html>

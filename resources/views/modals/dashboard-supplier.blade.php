@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="mb-0">
                                         <div class="image-upload mb-2">
-                                            <input name="image" id="image" class="art434 @error('image') is-invalid @enderror" type="file">
+                                            <input data-preview="profile-pic" name="image" id="image" class="art434 @error('image') is-invalid @enderror" type="file">
                                             <div class="image-uploads">
                                                 <h4>{{ __('supplier.form.image.label') }}</h4>
                                             </div>

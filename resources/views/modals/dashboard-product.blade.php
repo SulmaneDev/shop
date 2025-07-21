@@ -18,7 +18,7 @@
                         <div class="col-lg-12">
                             <div class="new-employee-field">
                                 <div class="profile-pic-upload mb-2">
-                                    <div class="profile-pic add-image " data-topreview="art434">
+                                    <div class="profile-pic add-image " data-topreview="input">
                                         <span>
                                             <i data-feather="plus-circle" class="plus-down-add"></i>
                                             {{ __('product.form.image.placeholder') }}
@@ -26,7 +26,7 @@
                                     </div>
                                     <div class="mb-0">
                                         <div class="image-upload mb-2">
-                                            <input name="image" id="image" class="art434 @error('image') is-invalid @enderror" type="file">
+                                            <input name="image" data-preview="profile-pic" id="image" class="input @error('image') is-invalid @enderror" type="file">
                                             <div class="image-uploads">
                                                 <h4>{{ __('product.form.image.label') }}</h4>
                                             </div>
@@ -47,7 +47,7 @@
                                 </label>
                                 <input id="name" name="name" type="text"
                                     class="form-control name @error('name') is-invalid @enderror"
-                                    placeholder="{{ __('product.form.name.placeholder') }}">
+                                    placeholder="{{ __('product.form.name.label') }}">
                                 @error('name') <p class="invalid-feedback">{{ $message }}</p> @enderror
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                                 </label>
                                 <input id="price" name="price" type="text"
                                     class="form-control price @error('price') is-invalid @enderror"
-                                    placeholder="{{ __('product.form.price.placeholder') }}">
+                                    placeholder="{{ __('product.form.price.label') }}">
                                 @error('price') <p class="invalid-feedback">{{ $message }}</p> @enderror
                             </div>
                         </div>

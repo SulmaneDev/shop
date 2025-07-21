@@ -4,6 +4,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginUserController;
+use App\Http\Controllers\PosController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\RegisterUserController;
@@ -64,7 +65,7 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
         Route::put('/edit/{id}', 'update')->name('customer.update');
         Route::delete('/delete/{id}', 'destroy')->name('customer.destroy');
     });
-    
+
     /**
      * Purchase Resource
      */
@@ -75,7 +76,15 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
         Route::put('/edit/{id}', 'edit')->name('purchase.update');
         Route::delete('/delete/{id}', 'destroy')->name('purchase.destroy');
     });
+
+    /**
+     * Pos Resource
+     */
+    Route::prefix("/pos")->controller(PosController::class)->group(function () {
+        Route::get('','index')->name('pos.index');
+    });
 });
+
 
 /**
  * Fallback Route
@@ -83,3 +92,4 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
 Route::fallback(function () {
     return view('pages.common.not-found');
 })->name('fallback');
+

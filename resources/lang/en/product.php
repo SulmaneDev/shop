@@ -15,8 +15,14 @@ return [
     ],
 
     'form' => [
-        'name' => 'Product Name',
-        'price' => 'Price',
+        'name' => [
+            'label' => 'Product Name',
+            'placeholder' => 'Enter product name',
+        ],
+        'price' => [
+            'label' => 'Price',
+            'placeholder' => 'Enter price',
+        ],
         'code' => 'Code',
         'brand' => 'Brand',
         'image' => 'Upload Image',
@@ -83,10 +89,10 @@ return [
         "price" => [
             "label" => "Price",
         ],
-        
+
         "brand" => [
             "label" => "Brand",
-            "placeholder"=> "Select brand"
+            "placeholder" => "Select brand",
         ],
 
     ],
