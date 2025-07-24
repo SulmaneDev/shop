@@ -2,36 +2,20 @@
     @include('components.pos-product-search')
     <div class="pos-products">
         <div class="tabs_container">
-            <div class="tab_content active" data-tab="all">
-                <div class="row g-3">
-                    @foreach ($data['pr'] as $key => $productList)
-                        @foreach ($productList as $pr)
-                            <x-pos-product-template 
-                                image="{{ $pr['image'] }}" 
-                                category="All" 
-                                name="{{ $pr['name'] }}" 
-                                price="{{ $pr['price'] }}" 
-                                qty="{{ $pr['quantity'] }}" />
-                        @endforeach
-                    @endforeach
-                </div>
-            </div>
-            
-            @foreach ($data['pr'] as $key => $productList)
-                <div class="tab_content" data-tab="{{ Str::slug($key) }}">
-                    <div class="row g-3">
-                        @foreach ($productList as $pr)
-                            <x-pos-product-template 
-                                image="{{ $pr['image'] }}" 
-                                category="{{ $key }}" 
-                                name="{{ $pr['name'] }}" 
-                                price="{{ $pr['price'] }}" 
-                                qty="{{ $pr['quantity'] }}" />
+
+            @foreach ($data['pr'] as $categoryKey => $productList)
+                <div class="tab_content {{$loop->first ? "active" : ""}}" data-tab="{{ Str::slug($categoryKey) }}">
+                    <div class="row g-3 list-of-products">
+                        @foreach ($productList as $productIndex => $pr)
+                            <x-pos-product-template index="{{ $productIndex }}" id="{{ $pr['id'] }}"
+                                image="{{ $pr['image'] }}" category="{{ $categoryKey }}" name="{{ $pr['name'] }}"
+                                price="{{ $pr['price'] }}" qty="{{ $pr['quantity'] }}" />
                         @endforeach
                     </div>
                 </div>
             @endforeach
-            
+
+
         </div>
     </div>
 </div>

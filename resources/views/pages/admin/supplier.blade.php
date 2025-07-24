@@ -18,7 +18,8 @@
             </li>
         </ul>
         <div class="page-btn">
-            <a href="#" class="btn btn-primary add-resource" data-bs-toggle="modal" data-bs-target="#add-supplier">
+            <a href="#" id="button" class="btn btn-primary add-resource" data-bs-toggle="modal"
+                data-bs-target="#add-supplier">
                 <i class="ti ti-circle-plus me-1"></i>{{ __('supplier.add_button') }}
             </a>
         </div>

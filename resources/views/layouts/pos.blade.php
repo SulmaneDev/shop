@@ -38,5 +38,17 @@
                 });
             });
         });
+
+        const selectedProducts = new Set();
+        let productsInCart = new Map();
+        $(document).ready(function() {
+            $(".list-of-products").on("click", ".product", function(e) {
+                const index = $(this).data('name');
+                selectedProducts.add(index);
+                
+            });
+
+
+        });
     </script>
 @endsection

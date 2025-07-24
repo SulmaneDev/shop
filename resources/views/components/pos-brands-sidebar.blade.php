@@ -3,15 +3,9 @@
         style="display: block; height: 100%; overflow: hidden;">
         <div class="owl-stage-outer">
             <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all; width: 109px;">
-                <div class="owl-item active" style="width: 15.533px;">
-                    <li data-target="all" class="active">
-                        <h6><a href="javascript:void(0);">All</a></h6>
-                    </li>
-
-                </div>
                 @foreach ($data['brandsWithProducts'] as $brand)
-                    <div class="owl-item" style="width: 15.533px;">
-                        <li data-target="{{ Str::slug($brand['name']) }}">
+                    <div class="owl-item {{$loop->first ? "active" : ""}}" style="width: 15.533px;">
+                        <li data-target="{{ Str::slug($brand['name']) }}" class="{{$loop->first ? "active" : ""}}">
                             <h6><a href="javascript:void(0);">{{ $brand['name'] }}</a></h6>
                         </li>
                     </div>

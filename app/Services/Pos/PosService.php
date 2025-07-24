@@ -27,6 +27,7 @@ class PosService
                         'price' => $product->price,
                         'image' => $product->image ?? 'assets/img/default.png',
                         'quantity' => $product->quantity ?? 1,
+                        'id'=> $product->id,
                     ];
                 })->values()->all(),
             ];
